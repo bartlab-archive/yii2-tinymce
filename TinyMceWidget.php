@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
 
-class TinyMceWidget extends InputWidge {
+class TinyMceWidget extends InputWidget {
 
     /**
      * the language to use. Defaults to false (autodetect)
