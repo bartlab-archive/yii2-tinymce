@@ -8,6 +8,7 @@ Features:
 * TinyMCE always the latest version, because loaded from the bower-asset/tinymce
 * Automatically download the language file based on the current localization settings Yii
 * Simple addition of their plug-ins and skins
+* Correct client validation
 * Other facilities
 
 Installation

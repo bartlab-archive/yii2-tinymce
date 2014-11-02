@@ -2,11 +2,10 @@
 
 namespace maybeworks\tinymce;
 
-use maybeworks\tinymce\TinyMceAsset;
-use maybeworks\tinymce\TinyMceCustomAsset;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
+use yii\helpers\ArrayHelper;
 
 class TinyMceWidget extends InputWidget {
 
@@ -28,6 +27,7 @@ class TinyMceWidget extends InputWidget {
      * @var array
      */
     public $defaultOptions = [
+        'class' => 'form-control',
         'rows' => 10
     ];
 
@@ -46,15 +46,15 @@ class TinyMceWidget extends InputWidget {
         'toolbar1' => "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
         'toolbar2' => "print preview media | forecolor backcolor code",
         'image_advtab' => true,
-//        'templates' => [
-//            ['title' => 'Test template 1', 'content' => 'Test 1'],
-//            ['title' => 'Test template 2', 'content' => 'Test 2']
-//        ]
+        //        'templates' => [
+        //            ['title' => 'Test template 1', 'content' => 'Test 1'],
+        //            ['title' => 'Test template 2', 'content' => 'Test 2']
+        //        ]
     ];
 
     public function init() {
-        $this->options = array_merge($this->defaultOptions, $this->options);
-        $this->clientOptions = array_merge($this->defaultClientOptions, $this->clientOptions);
+        $this->options = ArrayHelper::merge($this->defaultOptions, $this->options);
+        $this->clientOptions = ArrayHelper::merge($this->defaultClientOptions, $this->clientOptions);
         parent::init();
     }
 
@@ -106,7 +106,6 @@ class TinyMceWidget extends InputWidget {
         }
 
         $options = Json::encode($this->clientOptions);
-
-        $view->registerJs("tinymce.init($options);");
+        $view->registerJs("tinymce.init($options);jQuery('#" . $id . "').parents('form').on('beforeValidate',function(){tinyMCE.triggerSave();})");
     }
 }
