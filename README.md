@@ -64,6 +64,8 @@ Information
 Documentation: [TinyMCE plugin site](http://www.tinymce.com/wiki.php/Configuration)
 
 
-> [![MaybeWorks](http://maybe.works/img/mw_logo.png)](http://maybe.works)  
+
+
+> [![MaybeWorks](http://maybe.works/logo/logo_mw.png)](http://maybe.works)  
 <i>Nothing is impossible, limit exists only in the minds of...</i>  
 [maybe.works](http://maybe.works)
